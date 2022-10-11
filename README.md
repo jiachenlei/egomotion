@@ -3,7 +3,7 @@
 We, as team "**TheSSVL**" or "**EgoMotion-COMPASS**", took **2nd** place in both **Object State Change Classification** and **PNR temporal localization** tasks in Ego4d Challenge 2022  
 
 
-Moreover, **our work on Egocentric video understanding** will be made publicly available by Nov 2022.  
+### Moreover, **our work on Egocentric video understanding** will be made publicly available by Nov 2022.  
 
 
 
@@ -14,7 +14,7 @@ TODO
 - [ ] Release codes of our latest work on egocentric video understading  
 
 ### Environment requirements
-in addition to "wandb", we use same environment as videoMAE and ego4d oscc baseline. Please refer to the repos for more information
+in addition to "wandb", we use same environment as [VideoMAE](https://github.com/MCG-NJU/VideoMAE) and [ego4d oscc i3d-resnet50 baseline](https://github.com/EGO4D/hands-and-objects/tree/main/state-change-localization-classification/i3d-resnet50). Please refer to the repos for more information
 
 ### Usage
 
@@ -24,7 +24,7 @@ in addition to "wandb", we use same environment as videoMAE and ego4d oscc basel
 ```
     finetune: "" # path to the pretrained weight
 ```
-ps: you can download pretrained videoMAE weights from videoMAE repository:[vitl](), [vitb]()
+ps: you can download pretrained videoMAE weights from videoMAE repository:[vitl](https://drive.google.com/file/d/1qLOXWb_MGEvaI7tvuAe94CV7S2HXRwT3/view?usp=sharing), [vitb](https://drive.google.com/file/d/1JfrhN144Hdg7we213H1WxwR3lGYOlmIn/view?usp=sharing)
 
 - Modify required paramters in ./scripts/finetune_ego4d.sh
 
