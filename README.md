@@ -10,7 +10,7 @@ Moreover, **our work on Egocentric video understanding** will be made publicly a
 TODO
 
 - [ ] Post Techincal report on Arxiv  
-- [ ] Release codes which we used in Ego4d Challenge 2022  
+- [x] Release codes which we used in Ego4d Challenge 2022  
 - [ ] Release codes of our latest work on egocentric video understading  
 
 ### Reference
