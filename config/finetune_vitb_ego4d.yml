@@ -1,0 +1,124 @@
+# Required parameters
+#################################
+cfg:
+  DATA: 
+    # path to annotation directory that contains annotation files for oscc and temporal localization
+    ANN_DIR: "/path/to/ego4d/v1/annotations"
+    # path to full scale video in case some clips are corrupted
+    VIDEO_DIR_PATH: "/path/to/ego4d/v1/full_scale"
+    # path to "positive" clips where state change occurred
+    CLIPS_SAVE_PATH: "/path/to/ego4d/v1/pos"
+    # path to "negative" clips where no state change occurred
+    NO_SC_PATH: "/path/to/ego4d/v1/neg"
+
+    # Data Sampling
+    CLIP_LEN_SEC: 8 # Duration time in second of clip
+    CROP_SIZE: 224
+    SAMPLING_FPS: 2 # Sampled frames per second for training
+
+
+# path to pretrained model weights, e.g. /path/to/ssvl/videomae/ckpt/pretrain_vitb_800_kinetics400.pth
+finetune: "/path/to/ckpt/pretrain_vitb_800_kinetics400.pth"
+# path to directory that stores model checkpoint files, e.g. /path/to/ssvl/videomae/output
+output_dir: "/path/to/output"
+# path to directory that stores training logs, e.g. /path/to/ssvl/videomae/output
+log_dir: "/path/to/output"
+
+
+# Frequently modified parameters
+#################################
+# loss weight for oscc
+lamb_cls: 1
+# loss weight for temporal localization
+lamb_loc: 1
+
+batch_size: 4
+num_workers: 8
+epochs: 100 
+# frequency of printing logging information, by default, output per iteration
+update_freq: 1
+# frequency of saving model checkpoints, by default, save checkpoints every 10 epochs
+# notice that checkpoint achieves best scores will be stored automatically
+save_ckpt_freq: 10
+
+# Other paramters
+#################################
+# Model parameters
+model: 'vit_twohead_base_patch16_224'
+tubelet_size: 2
+input_size: 224
+
+drop: 0.0
+attn_drop_rate: 0.0
+drop_path: 0.1
+
+disable_eval_during_finetuning: false
+model_ema: false
+model_ema_decay: 0.9999
+model_ema_force_cpu: false
+
+# Optimizer parameters
+opt: 'adamw'
+opt_eps: 1.0e-8
+opt_betas: [0.9, 0.999]
+clip_grad: null
+momentum: 0.9
+weight_decay: 0.05
+weight_decay_end: null
+                        
+
+lr: 5.0e-4
+layer_decay: 0.75
+warmup_lr: 1.0e-6
+min_lr: 1.0e-6
+
+warmup_epochs: 5
+warmup_steps: -1
+
+# Augmentation parameters
+color_jitter: 0.4
+num_sample: 1
+aa: 'rand-m7-n4-mstd0.5-inc1'
+smoothing: 0.1
+train_interpolation: 'bicubic'
+
+# Evaluation parameters
+crop_pct: null
+short_side_size: 224
+test_num_segment: 5
+test_num_crop: 3
+
+# Random Erase params
+reprob: 0.25
+remode: 'pixel'
+recount: 1
+resplit: false
+
+# Mixup params
+mixup: 0.8
+cutmix: 1.0
+cutmix_minmax: null
+mixup_prob: 1.0
+mixup_switch_prob: 0.5
+mixup_mode: 'batch'
+
+
+model_key: 'model|module'
+model_prefix: ''
+init_scale: 0.001
+use_mean_pooling: true
+
+
+# Dataset parameters
+clip_len: 8
+nb_classes: -1
+imagenet_default_mean_and_std: true
+num_segments: 1
+num_frames: 16
+sampling_rate: 4
+
+resume: ''
+# automatically resume from latest checkpoint, if found checkpoint exists in specified $output_dir$
+auto_resume: true
+save_ckpt: true
+start_epoch: 0

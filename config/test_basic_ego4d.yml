@@ -1,0 +1,37 @@
+# Required parameters
+#################################
+cfg:
+  DATA: 
+    # path to annotation directory that contains annotation files for oscc and temporal localization
+    ANN_DIR: "/path/to/ego4d/v1/annotations"
+    # path to full scale video in case some clips are corrupted
+    VIDEO_DIR_PATH: "/path/to/ego4d/v1/full_scale"
+    # path to "positive" clips where state change occurred
+    CLIPS_SAVE_PATH: "/path/to/ego4d/v1/pos"
+    # path to "negative" clips where no state change occurred
+    NO_SC_PATH: "/path/to/ego4d/v1/neg"
+
+    # Data Sampling
+    CLIP_LEN_SEC: 8 # Duration time in second of clip
+    CROP_SIZE: 224
+    SAMPLING_FPS: 2 # Sampled frames per second for training
+
+
+# path to directory that stores model checkpoint files, e.g. /path/to/ssvl/videomae/output
+output_dir: "/path/to/output"
+# path to directory that stores training logs, e.g. /path/to/ssvl/videomae/output
+log_dir: "/path/to/output"
+
+num_workers: 8
+batch_size: 4
+
+model: 'vit_twohead_large_patch16_224'  # [vit_twohead_base_patch16_224, vit_twohead_large_patch16_224]
+tubelet_size: 2
+input_size: 224
+short_side_size: 224
+test_num_crop: 3  # spatial crop number
+
+model_key: 'model|module'
+model_prefix: ''
+use_mean_pooling: true
+nb_classes: -1
