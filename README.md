@@ -13,6 +13,60 @@ TODO
 - [x] Release codes which we used in Ego4d Challenge 2022  
 - [ ] Release codes of our latest work on egocentric video understading  
 
+### Environment requirements
+in addition to "wandb", we use same environment as videoMAE and ego4d oscc baseline. Please refer to the repos for more information
+
+### Usage
+
+1. Finetuning pretrained weights on Ego4d oscc and temporal localization at the same time:
+
+- Modify required paramters including dataset path in config/finetune_vitb_ego4d.yml or config/finetune_vitl_ego4d.yml, e.g.
+```
+    finetune: "" # path to the pretrained weight
+```
+ps: you can download pretrained videoMAE weights from videoMAE repository:[vitl](), [vitb]()
+
+- Modify required paramters in ./scripts/finetune_ego4d.sh
+
+- Finally, in ./scripts, run
+
+```python
+    # finetune on single node 
+    bash finetune_ego4d.sh 0 0.0.0.0
+
+    # finetune on two nodes:
+    # run on first node
+    bash finetune_ego4d.sh 0 0.0.0.0
+    # run on second node
+    bash finetune_ego4d.sh 1 ip_address_of_first_machine
+```
+
+2. Test on Ego4d oscc and temporal localization:
+
+- Similar to 1, modify required paramters including dataset path in config/test_ego4d.yml
+
+- Modify required paramters in ./scripts/test_ego4d.sh
+
+- Finally, in ./scripts, run
+
+```python
+    # test on single node 
+    bash test_ego4d.sh 0 0.0.0.0
+
+    # test on two nodes:
+    # run on first node
+    bash test_ego4d.sh 0 0.0.0.0
+    # run on second node
+    bash test_ego4d.sh 1 ip_address_of_first_machine
+```
+
+For emphasis, two json files (one for oscc one for temporal localization) in the format specified by ego4d challenge will be generated and stored in the directory:
+```
+$output_dir/$name
+```
+where $output_dir is specified in config/test_ego4d.yml
+and $name is specified in test_ego4d.sh
+
 ### Reference
 [1] VideoMAE by Zhan, etc : [VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training](https://arxiv.org/abs/2203.12602)  
 [2] VideoMAE by Kaiming, etc : [Masked Autoencoders As Spatiotemporal Learners](https://arxiv.org/abs/2205.09113)  
