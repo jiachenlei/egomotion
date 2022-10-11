@@ -79,4 +79,4 @@ If you have any questions about our projects or implementation, please open an i
 Jiachen Lei: jiachenlei@zju.edu.cn 
 
 ### Acknowledgements
-We built our codes based on [VideoMAE](https://github.com/MCG-NJU/VideoMAE), [MAE-pytorch](https://github.com/pengzhiliang/MAE-pytorch). Thanks to all the contributors of these great repositories.
+We built our codes based on [ego4d-i3dresnet50](https://github.com/EGO4D/hands-and-objects/tree/main/state-change-localization-classification/i3d-resnet50), [VideoMAE](https://github.com/MCG-NJU/VideoMAE), [MAE-pytorch](https://github.com/pengzhiliang/MAE-pytorch). Thanks to all the contributors of these great repositories.
