@@ -41,7 +41,7 @@ Our directory structure:
 ```
 After finish downloading required videos, you could start finetuning experiments following instructions bellow.
 
-###Usage
+### Usage
 
 1. Finetuning pretrained weights on Ego4d oscc and temporal localization at the same time:
 
