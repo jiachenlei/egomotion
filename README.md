@@ -16,7 +16,30 @@ TODO
 ### Environment requirements
 in addition to "wandb", we use same environment as [VideoMAE](https://github.com/MCG-NJU/VideoMAE) and [ego4d oscc i3d-resnet50 baseline](https://github.com/EGO4D/hands-and-objects/tree/main/state-change-localization-classification/i3d-resnet50). Please refer to the repos for more information
 
-### Usage
+### Data Prepration
+please refer to [ego4d instruction](https://github.com/facebookresearch/Ego4d/blob/main/ego4d/cli/README.md) and download required videos for fho_oscc task.
+For convinience, we save clips where state change occurs and clips where no state change occurs in two different directories. You can use same directory for both kinds of clips if you want.
+
+Our directory structure:
+```
+/path/to/ego4d:
+	/v1
+		/full_scale
+			/*.mp4
+		...
+		/annotations
+			/*.json
+		
+		# for saving clips where state change occurs
+		/pos
+			/unique_id
+			...
+		# for saving clips where no state change occurs
+		/neg
+			/unique_id
+			...
+```
+###Usage
 
 1. Finetuning pretrained weights on Ego4d oscc and temporal localization at the same time:
 
