@@ -3,7 +3,7 @@
 We, as team "**TheSSVL**" or "**EgoMotion-COMPASS**", took **2nd** place in both **Object State Change Classification** and **PNR temporal localization** tasks in Ego4d Challenge 2022  
 
 
-### Moreover, **our work on Egocentric video understanding** will be made publicly available by Nov 2022.  
+### Moreover, **our work on Egocentric video understanding** will be made publicly available soon.
 
 
 
